@@ -28,13 +28,13 @@ const fileTypeMap = {
 
 http.createServer(function(req, res){
     // console.log(`${req} and ${res}`)
-    // console.log(`${req.method} ${req.url}`)
+    console.log(`${req.method} ${req.url}`)
     //parser url
     const parsedUrl = url.parse(req.url)
     // console.log('url: ', req.url);
     // console.log('parsedUlr: ', parsedUrl);
     //saniteze path
-    const sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '')
+    let sanitizePath = path.normalize(parsedUrl.pathname).replace(/^(\.\.[\/\\])+/, '')
     //path name
     let pathName = path.join(__dirname, sanitizePath)
     //check if path exist
